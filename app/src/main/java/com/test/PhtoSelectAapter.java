@@ -15,6 +15,8 @@ public class PhtoSelectAapter extends BaseQuickAdapter<DataEntity, BaseViewHolde
     private Set<Integer> checkStatus;//保证元素不重复
     //控制是否显示Checkbox。true 显示 false 隐藏
     private boolean showCheckBox = false;
+
+    private boolean allCheckBox = false;
     //显示checkbox
     public void setShowCheckBox(boolean showCheckBox) {
         this.showCheckBox = showCheckBox;
@@ -30,6 +32,9 @@ public class PhtoSelectAapter extends BaseQuickAdapter<DataEntity, BaseViewHolde
         if (checkStatus.contains(pos)){
             checkStatus.remove(pos);
         }
+    }
+    public void setAllCheckBox(boolean setAllCheckBox){
+        this.allCheckBox = allCheckBox;
     }
 
     public PhtoSelectAapter(@Nullable List<DataEntity> data) {
@@ -52,8 +57,14 @@ public class PhtoSelectAapter extends BaseQuickAdapter<DataEntity, BaseViewHolde
         }else {
             checkBox.setChecked(false);//不勾选
         }
+//        if (allCheckBox==true){
+//            checkBox.setChecked(true);//勾选
+//        }else {
+//            checkBox.setChecked(false);//不勾选
+//        }
+        }
 
 
-    }
+
 
 }

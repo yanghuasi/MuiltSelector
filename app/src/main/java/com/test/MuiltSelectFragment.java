@@ -10,6 +10,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.TextView;
 import android.widget.Toast;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import java.util.ArrayList;
@@ -19,6 +21,7 @@ import java.util.List;
 public class MuiltSelectFragment extends Fragment {
     private RecyclerView mRcv;
     private Button mBtn;
+    private CheckBox all;
     private PhtoSelectAapter mPhotoSeletorAdapter;
     private List<String> list;
 
@@ -42,6 +45,7 @@ public class MuiltSelectFragment extends Fragment {
         //view.findViewById();
         mBtn = (Button) view.findViewById(R.id.btn);
         mRcv = (RecyclerView) view.findViewById(R.id.rcv);
+        all = view.findViewById(R.id.all);
         checkList = new ArrayList<>();
 
         entities = new ArrayList<> ();
@@ -63,6 +67,13 @@ public class MuiltSelectFragment extends Fragment {
         mRcv.setAdapter(mPhotoSeletorAdapter);
         mRcv .setLayoutManager(new GridLayoutManager(getActivity(),5));
         //点击
+//        all.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                mPhotoSeletorAdapter.setAllCheckBox(true);
+//                mPhotoSeletorAdapter.notifyDataSetChanged();//刷新
+//            }
+//        });
         mPhotoSeletorAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
@@ -87,6 +98,7 @@ public class MuiltSelectFragment extends Fragment {
             @Override
             public boolean onItemLongClick(BaseQuickAdapter adapter, View view, int position) {
                 mPhotoSeletorAdapter.setShowCheckBox(true);//长按Item出现勾选框checkbox
+                all.setVisibility(View.VISIBLE);
                 mPhotoSeletorAdapter.notifyDataSetChanged();//刷新
                 return false;
             }
