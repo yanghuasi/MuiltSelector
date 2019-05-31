@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.chad.library.adapter.base.BaseQuickAdapter;
@@ -67,13 +68,25 @@ public class MuiltSelectFragment extends Fragment {
         mRcv.setAdapter(mPhotoSeletorAdapter);
         mRcv .setLayoutManager(new GridLayoutManager(getActivity(),5));
         //点击
-//        all.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                mPhotoSeletorAdapter.setAllCheckBox(true);
-//                mPhotoSeletorAdapter.notifyDataSetChanged();//刷新
-//            }
-//        });
+        all.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                // 通过这个方法，来监听当前的checkbox是否被选中
+                if (isChecked) {
+                    mPhotoSeletorAdapter.setAllCheckBox(true);
+
+                }else {mPhotoSeletorAdapter.setAllCheckBox(false);}
+            }
+        });
+        all.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (all.isChecked()) {
+                    mPhotoSeletorAdapter.setAllCheckBox(true);
+                    mPhotoSeletorAdapter.notifyDataSetChanged();//刷新
+                }
+            }
+        });
         mPhotoSeletorAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
@@ -88,6 +101,7 @@ public class MuiltSelectFragment extends Fragment {
                     //position就刷新第几个的checkbox的选中状态
                     mPhotoSeletorAdapter.setCheckStatus(position);
                 }
+
                 //只刷新点击的那一条记录
                 mPhotoSeletorAdapter.notifyItemChanged(position);
 

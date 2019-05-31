@@ -15,8 +15,7 @@ import android.widget.ImageView;
 
 public class OutSideFragment extends Fragment {
     private Button btn;
-    private ImageView show;
-    RecyclerView recyclerView;
+
 
 
         @Nullable
@@ -25,7 +24,6 @@ public class OutSideFragment extends Fragment {
             final View view = inflater.inflate( R.layout.fragment_outside, null );
             //view.findViewById();
             btn = (Button) view.findViewById (R.id.btn);
-            show=(ImageView)view.findViewById(R.id.show);
             btn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

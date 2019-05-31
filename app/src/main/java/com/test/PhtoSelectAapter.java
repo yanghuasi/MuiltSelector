@@ -6,12 +6,17 @@ import android.widget.ImageView;
 import com.bumptech.glide.Glide;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
+
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 
 public class PhtoSelectAapter extends BaseQuickAdapter<DataEntity, BaseViewHolder> {
+
     private Set<Integer> checkStatus;//保证元素不重复
     //控制是否显示Checkbox。true 显示 false 隐藏
     private boolean showCheckBox = false;
@@ -52,16 +57,24 @@ public class PhtoSelectAapter extends BaseQuickAdapter<DataEntity, BaseViewHolde
         //当前进入选中状态，且当前item是被选中
         //getLayoutPosition获取当前item的position
         //boolean contains(Object o);判断集合中是否存在某个元素
-        if (showCheckBox && checkStatus.contains( helper.getLayoutPosition())){
-            checkBox.setChecked(true);//勾选
-        }else {
-            checkBox.setChecked(false);//不勾选
-        }
-//        if (allCheckBox==true){
+//        if (showCheckBox && checkStatus.contains( helper.getLayoutPosition())){
 //            checkBox.setChecked(true);//勾选
 //        }else {
 //            checkBox.setChecked(false);//不勾选
 //        }
+       if (showCheckBox && checkStatus.contains( helper.getLayoutPosition())){
+           checkBox.setChecked(true);//勾选
+       }else {
+           checkBox.setChecked(false);//不勾选
+       }
+         if (allCheckBox==true){
+//            setCheckStatus(helper.getLayoutPosition());
+            checkBox.setChecked(false);//不勾选
+            }
+        else {
+
+            checkBox.setChecked(true);//勾选
+        }
         }
 
 
