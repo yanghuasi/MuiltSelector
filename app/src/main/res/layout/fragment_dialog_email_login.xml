@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="#ffffff"
+        android:orientation="horizontal"
+        android:layout_marginLeft="53dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginRight="53dp">
+
+
+        <EditText
+            android:id="@+id/et_mail"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:background="#ffffff"
+            android:layout_gravity="center"
+            android:hint="请输入邮箱"
+            android:maxLength="15"
+            android:textColorHint="#999999"
+            android:textColor="#333333"
+            android:textSize="14sp" />
+        <!---->
+
+        <!--<ImageView-->
+        <!--android:id="@+id/clear1"-->
+        <!--android:layout_width="16dp"-->
+        <!--android:layout_height="16dp"-->
+        <!--android:layout_gravity="center"-->
+        <!--android:visibility="invisible"-->
+        <!--android:background="@mipmap/icon_delete" />-->
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="1dp"
+            android:background="#ffe5e5e5"
+            android:layout_marginRight="53dp"
+            android:layout_marginLeft="53dp"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="#ffffff"
+        android:orientation="horizontal"
+        android:layout_marginLeft="53dp"
+        android:layout_marginRight="53dp"
+        android:layout_marginTop="10dp">
+
+
+        <EditText
+            android:id="@+id/et_password"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:background="#ffffff"
+            android:hint="请输入密码"
+            android:maxLength="15"
+            android:inputType="textPassword"
+            android:textColorHint="#999999"
+            android:layout_gravity="center"
+            android:textColor="#333333"
+            android:textSize="14sp" />
+
+        <!--<ImageView-->
+        <!--android:id="@+id/clear2"-->
+        <!--android:layout_width="16dp"-->
+        <!--android:layout_height="16dp"-->
+        <!--android:layout_marginRight="12dp"-->
+        <!--android:layout_gravity="center"-->
+        <!--android:visibility="invisible"-->
+        <!--android:background="@mipmap/icon_delete" />-->
+        <!--可见与不可见用CheckBox-->
+        <!--<CheckBox-->
+        <!--android:id="@+id/displayPassword"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_gravity="center"-->
+        <!--android:layout_alignParentRight="true"-->
+        <!--android:layout_centerVertical="true"-->
+        <!--android:button="@drawable/selector"-->
+        <!--/>-->
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="1dp"
+            android:background="#ffe5e5e5"
+            android:layout_marginRight="53dp"
+            android:layout_marginLeft="53dp"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="#ffffff"
+        android:orientation="horizontal"
+        android:layout_marginLeft="53dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="53dp">
+
+
+        <EditText
+            android:id="@+id/et_address"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:background="#ffffff"
+            android:layout_gravity="center"
+            android:hint="请输入SMTP地址"
+            android:maxLength="15"
+            android:textColorHint="#999999"
+            android:textColor="#333333"
+            android:textSize="14sp" />
+        <!---->
+
+        <!--<ImageView-->
+        <!--android:id="@+id/clear1"-->
+        <!--android:layout_width="16dp"-->
+        <!--android:layout_height="16dp"-->
+        <!--android:layout_gravity="center"-->
+        <!--android:visibility="invisible"-->
+        <!--android:background="@mipmap/icon_delete" />-->
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="1dp"
+            android:background="#ffe5e5e5"
+            android:layout_marginRight="53dp"
+            android:layout_marginLeft="53dp"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="#ffffff"
+        android:orientation="horizontal"
+        android:layout_marginLeft="53dp"
+        android:layout_marginRight="53dp"
+        android:layout_marginTop="10dp">
+
+
+        <EditText
+            android:id="@+id/et_port"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:background="#ffffff"
+            android:hint="请输入SMTP端口"
+            android:maxLength="15"
+            android:inputType="textPassword"
+            android:textColorHint="#999999"
+            android:layout_gravity="center"
+            android:textColor="#333333"
+            android:textSize="14sp" />
+
+        <!--<ImageView-->
+        <!--android:id="@+id/clear2"-->
+        <!--android:layout_width="16dp"-->
+        <!--android:layout_height="16dp"-->
+        <!--android:layout_marginRight="12dp"-->
+        <!--android:layout_gravity="center"-->
+        <!--android:visibility="invisible"-->
+        <!--android:background="@mipmap/icon_delete" />-->
+        <!--可见与不可见用CheckBox-->
+        <!--<CheckBox-->
+        <!--android:id="@+id/displayPassword"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_gravity="center"-->
+        <!--android:layout_alignParentRight="true"-->
+        <!--android:layout_centerVertical="true"-->
+        <!--android:button="@drawable/selector"-->
+        <!--/>-->
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+l
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="1dp"
+            android:background="#ffe5e5e5"
+            android:layout_marginRight="53dp"
+            android:layout_marginLeft="53dp"/>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/tv_send"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="#ffffff"
+        android:orientation="horizontal"
+        android:layout_marginLeft="53dp"
+        android:layout_marginRight="53dp"
+        android:layout_marginTop="10dp">
+
+
+        <TextView
+
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:background="#ffffff"
+            android:text="发送"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:textColor="#333333"
+            android:textSize="16sp" />
+    </LinearLayout>
+</LinearLayout>
