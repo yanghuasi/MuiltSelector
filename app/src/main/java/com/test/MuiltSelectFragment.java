@@ -25,6 +25,7 @@ public class MuiltSelectFragment extends Fragment {
     private CheckBox all;
     private PhtoSelectAapter mPhotoSeletorAdapter;
     private List<String> list;
+    int i;
 
     /**
      * 记录选中的ｃｈｅｃｋｂｏｘ
@@ -81,9 +82,27 @@ public class MuiltSelectFragment extends Fragment {
         all.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //全选键被勾选时
                 if (all.isChecked()) {
-                    mPhotoSeletorAdapter.setAllCheckBox(true);
+                    mPhotoSeletorAdapter.setAllCheckBox(true);//全选状态
+                    //遍历所有item 获取其position——i
+                    for ( i = 0;i<mPhotoSeletorAdapter.getItemCount();i++){
+                        checkList.add(String.valueOf(i));//添加勾选的item——全部
+                        //position就刷新第几个的checkbox的选中状态
+                        mPhotoSeletorAdapter.setCheckStatus(i);//勾选item——全部
+                    }
+
                     mPhotoSeletorAdapter.notifyDataSetChanged();//刷新
+                    //全选键被取消时
+                }else if (all.isChecked()==false){
+                    mPhotoSeletorAdapter.setAllCheckBox(false);//非全选状态
+                    for ( i = 0;i<mPhotoSeletorAdapter.getItemCount();i++){
+                        checkList.remove(String.valueOf(i));//移除取消勾选的item——全部
+                        //觉得难看不想选择则移除，取消选中框选中状态
+                        mPhotoSeletorAdapter.removeCheckBoxStuaus(i);//取消勾选item——全部
+                    }
+
+                    mPhotoSeletorAdapter.notifyDataSetChanged();
                 }
             }
         });
@@ -92,7 +111,7 @@ public class MuiltSelectFragment extends Fragment {
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
                 Log.d("ADAPTER","0");
                 Toast.makeText(getActivity(), "点击了第" + (position + 1) + "条条目", Toast.LENGTH_SHORT).show();
-                if (checkList.contains(String.valueOf(position))) {
+                /*if (checkList.contains(String.valueOf(position))) {
                     checkList.remove(String.valueOf(position));
                     //觉得难看不想选择则移除，取消选中框选中状态
                     mPhotoSeletorAdapter.removeCheckBoxStuaus(position);
@@ -103,8 +122,26 @@ public class MuiltSelectFragment extends Fragment {
                 }
 
                 //只刷新点击的那一条记录
-                mPhotoSeletorAdapter.notifyItemChanged(position);
+                mPhotoSeletorAdapter.notifyItemChanged(position);*/
 
+                    if (checkList.contains(String.valueOf(position))) {
+                        checkList.remove(String.valueOf(position));
+                        //觉得难看不想选择则移除，取消选中框选中状态
+                        mPhotoSeletorAdapter.removeCheckBoxStuaus(position);
+                        all.setChecked(false);//如果有一个item处于未选中状态，取消全选键的勾选
+                    } else{
+                        checkList.add(String.valueOf(position));
+                        //position就刷新第几个的checkbox的选中状态
+                        mPhotoSeletorAdapter.setCheckStatus(position);
+                        //如果全部item处于选中状态，勾选全选键
+                        if (checkList.size()==mPhotoSeletorAdapter.getItemCount()){
+                            all.setChecked(true);
+                        }
+                    }
+
+
+                //只刷新点击的那一条记录
+                mPhotoSeletorAdapter.notifyItemChanged(position);
             }
         });
 
@@ -112,7 +149,7 @@ public class MuiltSelectFragment extends Fragment {
             @Override
             public boolean onItemLongClick(BaseQuickAdapter adapter, View view, int position) {
                 mPhotoSeletorAdapter.setShowCheckBox(true);//长按Item出现勾选框checkbox
-                all.setVisibility(View.VISIBLE);
+                all.setVisibility(View.VISIBLE);//显示全选键
                 mPhotoSeletorAdapter.notifyDataSetChanged();//刷新
                 return false;
             }

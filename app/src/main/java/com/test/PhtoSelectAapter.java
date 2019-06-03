@@ -57,24 +57,12 @@ public class PhtoSelectAapter extends BaseQuickAdapter<DataEntity, BaseViewHolde
         //当前进入选中状态，且当前item是被选中
         //getLayoutPosition获取当前item的position
         //boolean contains(Object o);判断集合中是否存在某个元素
-//        if (showCheckBox && checkStatus.contains( helper.getLayoutPosition())){
-//            checkBox.setChecked(true);//勾选
-//        }else {
-//            checkBox.setChecked(false);//不勾选
-//        }
        if (showCheckBox && checkStatus.contains( helper.getLayoutPosition())){
            checkBox.setChecked(true);//勾选
        }else {
            checkBox.setChecked(false);//不勾选
        }
-         if (allCheckBox==true){
-//            setCheckStatus(helper.getLayoutPosition());
-            checkBox.setChecked(false);//不勾选
-            }
-        else {
 
-            checkBox.setChecked(true);//勾选
-        }
         }
 
 
