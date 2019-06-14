@@ -156,6 +156,13 @@ public class MuiltSelectFragment extends Fragment {
                     mPhotoSeletorAdapter.setShowCheckBox(false);//长按Item出现勾选框checkbox
                     all.setVisibility(View.INVISIBLE);//显示全选键
                     mPhotoSeletorAdapter.notifyDataSetChanged();//刷新
+                    //长按勾选框消失，取消所有勾选框的勾选
+                    for (position = 0;position <mPhotoSeletorAdapter.getItemCount();position++) {
+                        checkList.clear();
+                        //觉得难看不想选择则移除，取消选中框选中状态
+                        mPhotoSeletorAdapter.removeCheckBoxStuaus(position);
+                        all.setChecked(false);//如果有一个item处于未选中状态，取消全选键的勾选
+                    }
                 }
                 return false;
             }
