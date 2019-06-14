@@ -26,7 +26,7 @@ public class MuiltSelectFragment extends Fragment {
     private PhtoSelectAapter mPhotoSeletorAdapter;
     private List<String> list;
     int i;
-
+    private boolean select = true;
     /**
      * 记录选中的ｃｈｅｃｋｂｏｘ
      */
@@ -148,9 +148,15 @@ public class MuiltSelectFragment extends Fragment {
         mPhotoSeletorAdapter.setOnItemLongClickListener(new BaseQuickAdapter.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(BaseQuickAdapter adapter, View view, int position) {
-                mPhotoSeletorAdapter.setShowCheckBox(true);//长按Item出现勾选框checkbox
-                all.setVisibility(View.VISIBLE);//显示全选键
-                mPhotoSeletorAdapter.notifyDataSetChanged();//刷新
+                if (select =! select) {
+                    mPhotoSeletorAdapter.setShowCheckBox(true);//长按Item出现勾选框checkbox
+                    all.setVisibility(View.VISIBLE);//显示全选键
+                    mPhotoSeletorAdapter.notifyDataSetChanged();//刷新
+                }else {
+                    mPhotoSeletorAdapter.setShowCheckBox(false);//长按Item出现勾选框checkbox
+                    all.setVisibility(View.INVISIBLE);//显示全选键
+                    mPhotoSeletorAdapter.notifyDataSetChanged();//刷新
+                }
                 return false;
             }
         });
